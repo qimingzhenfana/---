@@ -1,15 +1,13 @@
 def sort(arr):
-    low = 1
-    high = len(arr) - 1
-    while low < high:
-        while arr[low] & 1 == 1 and low < high:
+    low = 0
+    l = len(arr)
+    for j in range(0, l):
+        if arr[j] & 1 == 1:
+            tmp = arr[j]
+            for k in range(j-1, low-1, -1):
+                arr[k + 1] = arr[k]
+            arr[low] = tmp
             low += 1
-        while arr[high] & 1 == 0 and low < high:
-            high -= 1
-        if low < high:
-            tmp = arr[low]
-            arr[low] = arr[high]
-            arr[high] = tmp
     return arr
 
 
